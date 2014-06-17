@@ -91,7 +91,7 @@ class PythonEncodingTest(unittest.TestCase):
         self.assertEqual(unicode_oracle[0:55], utf8_text[0:55])
 
     # reading windows-1252 -- otherwise known as ANSI
-    def read_windows1252(self):
+    def test_windows1252(self):
         content = readFile('../text-windows1252.txt')
 
         self.assertEqual(unicode_windows1252, content)
@@ -118,7 +118,7 @@ class PythonEncodingTest(unittest.TestCase):
         self.assertEqual(oracle_ascii, utf8_text_ascii)
 
     # read windows-1252 as latin1 and then transform to iso-8859-15
-    def read_windows1252_as_latin1_to_iso855915(self):
+    def test_windows1252_as_latin1_to_iso855915(self):
         content = readFile('../text-windows1252.txt')
 
         self.transformEncoding.set_content(content)
@@ -153,7 +153,7 @@ class PythonEncodingTest(unittest.TestCase):
         self.assertRaises(UnicodeEncodeError, self.transformEncoding.windows1252_to_iso85591)
 
     # read utf-8 as latin1 and then transform to iso-8859-15
-    def read_utf8_to_iso855915(self):
+    def test_utf8_to_iso855915(self):
         content = readFile('../text-utf8.txt')
 
         self.transformEncoding.set_content(content)
